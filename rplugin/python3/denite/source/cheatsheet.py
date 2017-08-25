@@ -27,7 +27,8 @@ class Source(Base):
 
         path = expanduser(self.vars['cheatsheet_tsv'])
         if not isfile(path) or not os.access(path, os.R_OK):
-            self._nvim.err_write('{} dosen\'t exist or is not readable\n'.format(path))
+            self._nvim.err_write(
+                '{} dosen\'t exist or is not readable\n'.format(path))
             return []
 
         def is_valid_line(line: str) -> bool:
@@ -45,7 +46,9 @@ class Source(Base):
             }
 
         with open(path, 'r') as f:
-            cands = [get_cand(line) for line in f.readlines() if is_valid_line(line)]
+            cands = [get_cand(line)
+                     for line in f.readlines()
+                     if is_valid_line(line)]
 
         def get_width(s: str):
             def get_eaw(c: str) -> int:
@@ -82,7 +85,8 @@ class Source(Base):
                     width_genre),
                 command=justify(cand['command'], width_command),
                 desc=justify(cand['desc'], width_desc),
-                mapping=self.vars['mapping_prefix'] + cand['mapping'] if cand['mapping'] else ''),
+                mapping=(self.vars['mapping_prefix']
+                         + cand['mapping'] if cand['mapping'] else '')),
             'kind': 'command',
             'action__command': cand['command'],
         } for cand in cands]
