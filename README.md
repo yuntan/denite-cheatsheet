@@ -32,4 +32,5 @@ json	prettyfy json		%!python -m json.tool
 ```
 
 Then run `:Denite cheatsheet`:
-[![https://gyazo.com/a82d07b4850216854712a279d9da35ff](https://i.gyazo.com/a82d07b4850216854712a279d9da35ff.png)](https://gyazo.com/a82d07b4850216854712a279d9da35ff)
+
+[![gif thumbnail](https://i.gyazo.com/9cafec6c5a4fe522180b9f7f800b36f6.gif)](https://youtu.be/8Hi90lonwPU)
